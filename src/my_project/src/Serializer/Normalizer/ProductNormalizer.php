@@ -15,6 +15,9 @@ class ProductNormalizer implements NormalizerInterface, CacheableSupportsMethodI
         $this->normalizer = $normalizer;
     }
 
+    // HANDLE PARAMS/PROPS case
+    // Params available via context, handle props as suggested on link
+    // https://stackoverflow.com/questions/36620160/prevent-symfony-serializer-to-certain-attributes 
     public function normalize($object, $format = null, array $context = array()): array
     {
         $data = $this->normalizer->normalize($object, $format, $context);
